@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajax</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#somebutton").click(function() {
+			servletCall();
+		});
+	});
+	function servletCall() {
+		$.post("LoginServlet", {
+			user : 'aker',
+			pwd : 'aker123'
+		}, //meaasge you want to send
+		function(result) {
+			$('#somediv').html(
+					'Here is your result : <strong>' + result + '</strong>'); //message you want to show
+		});
+	};
+</script>
+</head>
+<body>
+	<button id="somebutton">Ejecutar AJAX</button>
+	<div id="somediv"></div>
+</body>
+</html>
